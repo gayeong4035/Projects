@@ -46,22 +46,22 @@ print(train_features.shape, test_features.shape)
 print(train_features.shape[1])
 print(test_features.shape[1])
 
-missing_cols = set(train_features.columns) - set(test_features.columns) # train에 있고 test에는 없는 column
-extra_cols = set(test_features.columns) - set(train_features.columns) # test에는 있고 train에는 없는 column
+missing_cols = set(train_features.columns) - set(test_features.columns) # Columns in train but not in test
+extra_cols = set(test_features.columns) - set(train_features.columns) # Columns in test but not in train
 
-for col in missing_cols: #test에 없는 column 추가 (0으로 채우기)
+for col in missing_cols: # Add missing columns to test set (fill with 0)
     test_features[col] = 0
 
-test_features = test_features.drop(columns=extra_cols) # test에만 있는 column 제거
-test_features = test_features[train_features.columns] # column 순서 train이랑 맞추기
+test_features = test_features.drop(columns=extra_cols) # Remove columns that exist only in test set to ensure feature consistency between train and test
+test_features = test_features[train_features.columns] # Align column order with train set
 print(train_features.shape, test_features.shape)
 
-# train/test data 분리
+# Import function for splitting data into train and validation sets
 from sklearn.model_selection import train_test_split
 
-# features (X) 랑 label (y) 분리
-X = train_features.drop(columns=['respondent_id']) #respondent_id 제거 from train
-test_features = test_features.drop(columns=['respondent_id']) #respondent_id 제거 from test
+#  Separate features (X) and target labels (y)
+X = train_features.drop(columns=['respondent_id']) # Drop respondent_id, as it is not a feature
+test_features = test_features.drop(columns=['respondent_id']) # Ensure consistency by removing respondent_id from test set as well
 
 y_h1n1 = train_labels["h1n1_vaccine"]
 y_seasonal = train_labels["seasonal_vaccine"]
@@ -78,19 +78,19 @@ print(test_cols - train_cols)
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_auc_score
 
-# random forest model 생성
+# Create random forest model
 model_h1n1 = RandomForestClassifier(n_estimators=100, random_state=42)
 model_seasonal = RandomForestClassifier(n_estimators=100, random_state=42)
 
-# model 학습
+# Train the models
 model_h1n1.fit(X_train, y_h1n1_train)
 model_seasonal.fit(X_train, y_seasonal_train)
 
-# 예측
-y_h1n1_pred = model_h1n1.predict_proba(X_val)[:, 1]
-y_seasonal_pred = model_seasonal.predict_proba(X_val)[:, 1]
+# Generate predictions for validation set
+y_h1n1_pred = model_h1n1.predict_proba(X_val)[:, 1] # Probability of getting the H1N1 vaccine
+y_seasonal_pred = model_seasonal.predict_proba(X_val)[:, 1] # Probability of getting the seasonal flu vaccine
 
-# 평가 (ROC AUC score)
+# Evaluate model performance using ROC AUC score
 h1n1_auc = roc_auc_score(y_h1n1_val, y_h1n1_pred)
 seasonal_auc = roc_auc_score(y_seasonal_val, y_seasonal_pred)
 
@@ -98,9 +98,9 @@ print(f"H1N1 Vaccine ROC AUC: {h1n1_auc:.4f}")
 print(f"Seasonal Vaccine ROC AUC: {seasonal_auc:.4f}")
 print(f"Overall ROC AUC: {(h1n1_auc + seasonal_auc) / 2:.4f}")
 
-# 각각의 모델을 사용하여 예측
-test_h1n1_pred = model_h1n1.predict_proba(test_features)[:, 1] #H1N1 예측
-test_seasonal_pred = model_seasonal.predict_proba(test_features)[:, 1] #Seasonal 예측
+# Make predictions on the test dataset using trained models
+test_h1n1_pred = model_h1n1.predict_proba(test_features)[:, 1] # H1N1 vaccine probability prediction
+test_seasonal_pred = model_seasonal.predict_proba(test_features)[:, 1] # Seasonal flu vaccine probability prediction
 print(test_h1n1_pred)
 print(test_seasonal_pred)
 
@@ -112,7 +112,7 @@ submission = pd.DataFrame({
 
 print(submission)
 
-submission.to_csv("submission.csv", index=False) # Save the DataFrame to a CSV file
+submission.to_csv("submission.csv", index=False) # Save the DataFrame to a CSV file (index=False to avoid adding an extra index column)
 from google.colab import files
 files.download("submission.csv")
 
