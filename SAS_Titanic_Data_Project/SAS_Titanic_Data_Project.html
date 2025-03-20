@@ -1,0 +1,2034 @@
+<html>
+<meta charset="UTF-8">
+<style>
+body { 
+font-family: 'Lato', sans-serif !important;
+font-size: 14px!important;
+color: #353535;
+background-color: #f0f1f2;
+background: #f0f1f2;
+}
+</style>
+<title>
+Program Summary - Program 1.sas
+</title>
+<body>
+<center>
+<h3>
+Program Summary - Program 1.sas</center>
+<p><hr>
+<h3>Execution Environment</h3>
+<table border=0>
+<tr><td nowrap>Author:</td><td nowrap>u63613043</td></tr><tr><td nowrap>File:</td><td nowrap>/home/u63613043/Program 1.sas</td></tr><tr><td nowrap>SAS Platform:</td><td nowrap>Linux LIN X64 5.14.0-284.30.1.el9_2.x86_64</td></tr><tr><td nowrap>SAS Host:</td><td nowrap>ODAWS02-USW2-2.ODA.SAS.COM</td></tr><tr><td nowrap>SAS Version:</td><td nowrap>9.04.01M7P08062020</td></tr><tr><td nowrap>SAS Locale:</td><td nowrap>en_US</td></tr><tr><td nowrap>Submission Time:</td><td nowrap>3/20/2025, 3:08:01 PM</td></tr><tr><td nowrap>Browser Host:</td><td nowrap>128.164.185.118</td></tr><tr><td nowrap>User Agent:</td><td>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36</td></tr><tr><td nowrap>Application Server:</td><td nowrap>ODAMID00-USW2-2.ODA.SAS.COM</td></tr>
+</table>
+</h3></center>
+<p><hr></hr>
+<link media="all" rel="stylesheet" href="https://odamid-usw2-2.oda.sas.com/SASStudio/proxy/308101.5.0.20220427130200_f0dms381p/resources/js/dojo/dijit/themes/corporate/sce.css" /><div>
+<h3>Code: Program 1.sas</h3>
+<div style="width: 732.547px; height: 3254px;"><div tabindex="-1" role="application" class="textview sce sce-sas _textviewDOMReady" style="position: relative; overflow: hidden; width: 100%; height: 100%; text-size-adjust: 100%; line-height: normal;"><div class="textviewLeftRuler" tabindex="-1" aria-hidden="true" style="overflow: hidden; user-select: none; position: absolute; top: 0px; bottom: 0px; cursor: default; display: none;"></div><div class="textviewScroll" tabindex="-1" style="position: absolute; inset: 0px; border-width: 0px; margin: 0px; outline: none; background: transparent; overflow: hidden;"><div style="margin: 0px; border-width: 0px; padding: 0px; height: 3230px; width: 729px;"></div></div><div class="textviewRightRuler" tabindex="-1" aria-hidden="true" style="overflow: hidden; user-select: none; position: absolute; top: 0px; bottom: 0px; cursor: default; display: none; right: 0px;"></div><div class="textviewInnerRightRuler" tabindex="-1" aria-hidden="true" style="overflow: hidden; user-select: none; position: absolute; top: 0px; bottom: 0px; cursor: default; display: none; z-index: 1; right: 0px;"></div><div class="textviewMarginRuler" tabindex="-1" aria-hidden="true" style="overflow: hidden; user-select: none; position: absolute; top: 0px; bottom: 0px; cursor: default; display: none; z-index: 4; left: 2px;"></div><div style="position: absolute; overflow: hidden; margin: 0px; border-width: 0px; padding: 0px; background: transparent; inset: 0px 0px 4px;"><div style="position: absolute; height: 1px; top: -1000px; background: transparent; width: 729px;"></div><div class="textviewContent" tabindex="0" spellcheck="false" contenteditable="true" style="position: absolute; border-width: 0px; margin: 0px; padding: 0px; outline: none; z-index: 1; user-select: text; white-space: pre; overflow-wrap: normal; tab-size: 4; left: 2px; top: 4px; width: 729px; height: 3246px;"><div><span class="comment">/*problem 1 part a*/</span><span> </span></div><div><span class="keyword">filename</span><span class="text"> reffile </span><span class="string">'/home/u63613043/titanic.csv'</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div class=" block-mark"><span class="sec-keyword">proc</span><span class="text"> </span><span class="sec-keyword">import</span><span class="text"> </span><span class="keyword">datafile</span><span class="sep">=</span><span class="text">reffile </span><span class="keyword">dbms</span><span class="sep">=</span><span class="text">csv </span><span class="keyword">out</span><span class="sep">=</span><span class="text">work.import </span><span class="keyword">replace</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">getnames</span><span class="sep">=</span><span class="text">yes</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div class=" block-mark"><span class="sec-keyword">proc</span><span class="text"> </span><span class="sec-keyword">contents</span><span class="text"> </span><span class="keyword">data</span><span class="sep">=</span><span class="text">work.import</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div><span class="keyword">libname</span><span class="text"> mylib </span><span class="string">"/home/u63613043/mylib"</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div class=" block-mark"><span class="sec-keyword">data</span><span class="text"> mylib.titanic</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">set</span><span class="text"> work.import</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div><span class="comment">/* part b */</span><span> </span></div><div class=" block-mark"><span class="sec-keyword">proc</span><span class="text"> </span><span class="sec-keyword">sql</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">select</span><span class="text"> Total_Observations</span><span class="sep">,</span><span class="text"> Total_Variables </span><span class="keyword">from</span><span> </span></div><div><span class="text">		</span><span class="sep">(</span><span class="keyword">select</span><span class="text"> </span><span class="keyword">count</span><span class="sep">(*)</span><span class="text"> </span><span class="keyword">as</span><span class="text"> Total_Observations </span><span class="keyword">from</span><span class="text"> mylib.titanic</span><span class="sep">)</span><span class="text"> </span><span class="keyword">as</span><span class="text"> </span><span> </span></div><div><span class="text">		Total_Observations</span><span class="sep">,</span><span class="text"> </span><span class="sep">(</span><span class="keyword">select</span><span class="text"> count</span><span class="sep">(</span><span class="keyword">distinct</span><span class="text"> name</span><span class="sep">)</span><span class="text"> </span><span class="keyword">as</span><span class="text"> Total_Variables </span><span class="keyword">from</span><span class="text"> </span><span> </span></div><div><span class="text">		dictionary.columns </span><span class="keyword">where</span><span class="text"> libname</span><span class="sep">=</span><span class="string">"MYLIB"</span><span class="text"> </span><span class="keyword">and</span><span class="text"> memname</span><span class="sep">=</span><span class="string">"TITANIC"</span><span class="sep">)</span><span class="text"> </span><span class="keyword">as</span><span class="text"> </span><span> </span></div><div><span class="text">		Total_Variables</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">quit</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div><span class="comment">/* part c */</span><span> </span></div><div class=" block-mark"><span class="sec-keyword">proc</span><span class="text"> </span><span class="sec-keyword">sql</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">select</span><span class="text"> name </span><span class="keyword">as</span><span class="text"> Variable_Name</span><span class="sep">,</span><span> </span></div><div><span class="text">		type </span><span class="keyword">as</span><span class="text"> Data_Type</span><span class="sep">,</span><span> </span></div><div><span class="text">		length </span><span class="keyword">as</span><span class="text"> Variable_Length</span><span class="sep">,</span><span> </span></div><div><span class="text">		format </span><span class="keyword">as</span><span class="text"> Variable_Format</span><span class="sep">,</span><span> </span></div><div><span class="text">		label </span><span class="keyword">as</span><span class="text"> Variable_Label</span><span> </span></div><div><span class="text">	</span><span class="keyword">from</span><span class="text"> dictionary.columns</span><span> </span></div><div><span class="text">	</span><span class="keyword">where</span><span class="text"> libname </span><span class="sep">=</span><span class="text"> </span><span class="string">'MYLIB'</span><span class="text"> </span><span class="keyword">and</span><span class="text"> memname </span><span class="sep">=</span><span class="text"> </span><span class="string">'TITANIC'</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">quit</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div><span class="comment">/* part d */</span><span> </span></div><div class=" block-mark"><span class="sec-keyword">data</span><span class="text"> </span><span class="keyword">_null_</span><span class="sep">;</span><span> </span></div><div><span class="text">    </span><span class="keyword">set</span><span class="text"> sashelp.vcolumn </span><span class="keyword">end</span><span class="text"> </span><span class="sep">=</span><span class="text"> last</span><span class="sep">;</span><span> </span></div><div><span class="text">    </span><span class="keyword">where</span><span class="text"> libname </span><span class="sep">=</span><span class="text"> </span><span class="string">'MYLIB'</span><span class="text"> and memname </span><span class="sep">=</span><span class="text"> </span><span class="string">'TITANIC'</span><span class="sep">;</span><span> </span></div><div><span class="text">    </span><span class="keyword">if</span><span class="text"> type</span><span class="sep">=</span><span class="string">'num'</span><span class="text"> </span><span class="keyword">then</span><span class="text"> numeric_count</span><span class="sep">+</span><span class="numeric">1</span><span class="sep">;</span><span> </span></div><div><span class="text">    </span><span class="keyword">else</span><span class="text"> </span><span class="keyword">if</span><span class="text"> type </span><span class="sep">=</span><span class="text"> </span><span class="string">'char'</span><span class="text"> </span><span class="keyword">then</span><span class="text"> character_count</span><span class="sep">+</span><span class="numeric">1</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div><span class="text">    </span><span class="keyword">if</span><span class="text"> last </span><span class="keyword">then</span><span class="text"> </span><span class="keyword">do</span><span class="sep">;</span><span class="text">	</span><span> </span></div><div><span class="text">    	</span><span class="keyword">file</span><span class="text"> </span><span class="keyword">print</span><span class="sep">;</span><span> </span></div><div><span class="text">        </span><span class="keyword">put</span><span class="text"> </span><span class="string">"Numeric Variables = "</span><span class="text"> numeric_count</span><span class="sep">;</span><span> </span></div><div><span class="text">        </span><span class="keyword">put</span><span class="text"> </span><span class="string">"Character Variables = "</span><span class="text"> character_count</span><span class="sep">;</span><span> </span></div><div><span class="text">    </span><span class="keyword">end</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div><span class="comment">/* Problem 2 */</span><span> </span></div><div><span class="keyword">libname</span><span class="text"> myfmt </span><span class="string">"/home/u63613043/myfmt"</span><span class="sep">;</span><span> </span></div><div class=" block-mark"><span class="sec-keyword">proc</span><span class="text"> </span><span class="sec-keyword">format</span><span class="text"> </span><span class="keyword">library</span><span class="sep">=</span><span class="text">myfmt</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">value</span><span class="text"> pclassf</span><span> </span></div><div><span class="text">		</span><span class="numeric">1</span><span class="text"> </span><span class="sep">=</span><span class="text"> </span><span class="string">'Upper Class'</span><span> </span></div><div><span class="text">        </span><span class="numeric">2</span><span class="text"> </span><span class="sep">=</span><span class="text"> </span><span class="string">'Middle Class'</span><span> </span></div><div><span class="text">        </span><span class="numeric">3</span><span class="text"> </span><span class="sep">=</span><span class="text"> </span><span class="string">'Lower Class'</span><span> </span></div><div><span class="text">        other </span><span class="sep">=</span><span class="text"> </span><span class="string">'Unknown'</span><span> </span></div><div><span class="text">    </span><span class="sep">;</span><span> </span></div><div><span class="text">    </span><span class="keyword">value</span><span class="text"> </span><span class="sep">$</span><span class="text">embarkf</span><span> </span></div><div><span class="text">        </span><span class="string">'C'</span><span class="text"> </span><span class="sep">=</span><span class="text"> </span><span class="string">'Cherbourg'</span><span> </span></div><div><span class="text">        </span><span class="string">'Q'</span><span class="text"> </span><span class="sep">=</span><span class="text"> </span><span class="string">'Queenstown'</span><span> </span></div><div><span class="text">        </span><span class="string">'S'</span><span class="text"> </span><span class="sep">=</span><span class="text"> </span><span class="string">'Southampton'</span><span> </span></div><div><span class="text">        other </span><span class="sep">=</span><span class="text"> </span><span class="string">'Unknown'</span><span> </span></div><div><span class="text">    </span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span class="keyword">options</span><span class="text"> </span><span class="keyword">fmtsearch</span><span class="sep">=(</span><span class="text">myfmt</span><span class="sep">);</span><span> </span></div><div><span> </span></div><div><span class="comment">/* Problem 3 */</span><span> </span></div><div><span class="keyword">options</span><span class="text"> </span><span class="keyword">fmtsearch</span><span class="sep">=(</span><span class="text">myfmt</span><span class="sep">);</span><span> </span></div><div><span> </span></div><div class=" block-mark"><span class="sec-keyword">proc</span><span class="text"> </span><span class="sec-keyword">sort</span><span class="text"> </span><span class="keyword">data</span><span class="text"> </span><span class="sep">=</span><span class="text"> mylib.titanic </span><span class="keyword">out</span><span class="text"> </span><span class="sep">=</span><span class="text"> work.titanic_sorted</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">by</span><span class="text"> Pclass</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div class=" block-mark"><span class="sec-keyword">data</span><span class="text"> work.death_count</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">set</span><span class="text"> work.titanic_sorted</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">by</span><span class="text"> Pclass</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">retain</span><span class="text"> Deaths </span><span class="numeric">0</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span> </span></div><div><span class="text">	</span><span class="keyword">if</span><span class="text"> first.Pclass </span><span class="keyword">then</span><span class="text"> Deaths </span><span class="sep">=</span><span class="text"> </span><span class="numeric">0</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">if</span><span class="text"> Survived </span><span class="sep">=</span><span class="text"> </span><span class="numeric">0</span><span class="text"> </span><span class="keyword">then</span><span class="text"> Deaths </span><span class="sep">+</span><span class="numeric">1</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">if</span><span class="text"> last.Pclass </span><span class="keyword">then</span><span class="text"> </span><span class="keyword">output</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span> </span></div><div><span class="text">	</span><span class="keyword">keep</span><span class="text"> Pclass Deaths</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div class=" block-mark"><span class="sec-keyword">proc</span><span class="text"> </span><span class="sec-keyword">print</span><span class="text"> </span><span class="keyword">data</span><span class="text"> </span><span class="sep">=</span><span class="text"> work.death_count </span><span class="keyword">noobs</span><span class="text"> </span><span class="keyword">label</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">var</span><span class="text"> Pclass Deaths</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">format</span><span class="text"> Pclass </span><span class="format">pclassf.</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span> </span></div><div><span class="text">	</span><span class="keyword">label</span><span class="text"> Pclass </span><span class="sep">=</span><span class="text"> </span><span class="string">"Passenger Class"</span><span> </span></div><div><span class="text">		Deaths </span><span class="sep">=</span><span class="text"> </span><span class="string">"Number of Deaths"</span><span class="sep">;</span><span> </span></div><div><span class="text">		</span><span> </span></div><div><span class="text">	</span><span class="keyword">title</span><span class="text"> </span><span class="string">"Number of Deaths by Passenger Class"</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div><span class="comment">/* Problem 4 */</span><span> </span></div><div><span class="keyword">options</span><span class="text"> </span><span class="keyword">fmtsearch</span><span class="text"> </span><span class="sep">=</span><span class="text"> </span><span class="sep">(</span><span class="text">myfmt</span><span class="sep">);</span><span> </span></div><div><span> </span></div><div class=" block-mark"><span class="sec-keyword">proc</span><span class="text"> </span><span class="sec-keyword">sql</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">select</span><span class="text"> pclass format </span><span class="sep">=</span><span class="text"> </span><span class="format">pclassf.</span><span class="text"> </span><span class="keyword">as</span><span class="text"> Passenger_Class</span><span class="sep">,</span><span> </span></div><div><span class="text">		count</span><span class="sep">(*)</span><span class="text"> </span><span class="keyword">as</span><span class="text"> Number_of_Passengers</span><span class="sep">,</span><span> </span></div><div><span class="text">		sum </span><span class="sep">(</span><span class="keyword">case</span><span class="text"> </span><span class="keyword">when</span><span class="text"> Survived </span><span class="sep">=</span><span class="text"> </span><span class="numeric">0</span><span class="text"> </span><span class="keyword">then</span><span class="text"> </span><span class="numeric">1</span><span class="text"> </span><span class="keyword">else</span><span class="text"> </span><span class="numeric">0</span><span class="text"> </span><span class="keyword">end</span><span class="sep">)</span><span class="text"> </span><span class="keyword">as</span><span class="text"> Number_of_Deaths</span><span class="sep">,</span><span> </span></div><div><span class="text">		</span><span class="sep">(</span><span class="text">calculated Number_of_Deaths </span><span class="sep">/</span><span class="text"> calculated Number_of_Passengers</span><span class="sep">)</span><span class="text"> </span><span class="sep">*</span><span class="text"> </span><span class="numeric">1000</span><span> </span></div><div><span class="text">			</span><span class="keyword">as</span><span class="text"> Deaths_per_1000</span><span> </span></div><div><span class="text">	</span><span class="keyword">from</span><span class="text"> mylib.titanic</span><span> </span></div><div><span class="text">	</span><span class="keyword">group</span><span class="text"> </span><span class="keyword">by</span><span class="text"> pclass</span><span> </span></div><div><span class="text">	</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">quit</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div><span class="comment">/* Part 2 Problem 5 */</span><span> </span></div><div class=" block-mark"><span class="sec-keyword">proc</span><span class="text"> </span><span class="sec-keyword">means</span><span class="text"> </span><span class="keyword">data</span><span class="sep">=</span><span class="text">sashelp.class </span><span class="keyword">noprint</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">var</span><span class="text"> </span><span class="keyword">weight</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">output</span><span class="text"> </span><span class="keyword">out</span><span class="text"> </span><span class="sep">=</span><span class="text"> stats </span><span class="keyword">mean</span><span class="text"> </span><span class="sep">=</span><span class="text"> mean_weight</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div class=" block-mark"><span class="sec-keyword">data</span><span class="text"> work.class_new</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">if</span><span class="text"> _n_ </span><span class="sep">=</span><span class="text"> </span><span class="numeric">1</span><span class="text"> </span><span class="keyword">then</span><span class="text"> </span><span class="keyword">set</span><span class="text"> stats</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">set</span><span class="text"> sashelp.class</span><span class="sep">;</span><span> </span></div><div><span class="text">	Weight_minus_MeanWeight </span><span class="sep">=</span><span class="text"> weight </span><span class="sep">-</span><span class="text"> mean_weight</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">drop</span><span class="text"> _type_ _freq_</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div class=" block-mark"><span class="sec-keyword">proc</span><span class="text"> </span><span class="sec-keyword">print</span><span class="text"> </span><span class="keyword">data</span><span class="text"> </span><span class="sep">=</span><span class="text"> work.class_new </span><span class="keyword">noobs</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">title</span><span class="text"> </span><span class="string">"SASHELP.CLASS with Weight_minus_MeanWeight"</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div><span class="comment">/* Problem 6 */</span><span> </span></div><div class=" block-mark"><span class="sec-keyword">data</span><span class="text"> membership</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">infile</span><span class="text"> </span><span class="keyword">datalines</span><span class="text"> </span><span class="keyword">dsd</span><span class="text"> </span><span class="keyword">truncover</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">length</span><span class="text"> Member_ID </span><span class="sep">$</span><span class="numeric">9</span><span class="text"> Gender </span><span class="sep">$</span><span class="numeric">1</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">input</span><span class="text"> Member_ID </span><span class="sep">:</span><span class="text"> </span><span class="format">$9.</span><span> </span></div><div><span class="text">		BeginEnroll </span><span class="sep">:</span><span class="text"> </span><span class="sep">??</span><span class="text"> </span><span class="format">date9.</span><span> </span></div><div><span class="text">		EndEnroll </span><span class="sep">:</span><span class="text"> </span><span class="sep">??</span><span class="text"> </span><span class="format">date9.</span><span> </span></div><div><span class="text">		DOB </span><span class="sep">:</span><span class="text"> </span><span class="sep">??</span><span class="text"> </span><span class="format">date9.</span><span> </span></div><div><span class="text">		Gender </span><span class="sep">:</span><span class="text"> </span><span class="format">$1.</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">format</span><span class="text"> BeginEnroll EndEnroll DOB </span><span class="format">date9.</span><span class="sep">;</span><span> </span></div><div><span class="keyword">datalines</span><span class="sep">;</span><span> </span></div><div><span class="cards-data">M00008501,5FEB2013,31Dec2013,14May1930, M</span><span> </span></div><div><span class="cards-data">M00008502,30FEB2013,31Dec2013, 24May1930, F</span><span> </span></div><div><span class="cards-data">M00008503,15JUL2013,31Nov2013,30Feb1930, F</span><span> </span></div><div><span class="cards-data">M00008504,25AUG2013,31Dec2013,14May1930, M</span><span> </span></div><div><span class="cards-data">M00008505,27EB2013,31Dec2013,14May1930, F</span><span> </span></div><div><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div class=" block-mark"><span class="sec-keyword">proc</span><span class="text"> </span><span class="sec-keyword">print</span><span class="text"> </span><span class="keyword">data</span><span class="text"> </span><span class="sep">=</span><span class="text"> membership </span><span class="keyword">noobs</span><span class="sep">;</span><span> </span></div><div><span class="text">	</span><span class="keyword">title</span><span class="text"> </span><span class="string">"Membership Data Listing"</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div><div><span> </span></div></div><div class="textviewSelectionUnfocused" style="position: absolute; border-width: 0px; margin: 0px; padding: 0px; outline: none; width: 0px; height: 0px; z-index: 0; visibility: visible;"></div><div class="textviewSelectionUnfocused" style="position: absolute; border-width: 0px; margin: 0px; padding: 0px; outline: none; width: 0px; height: 0px; z-index: 0;"></div><div class="textviewSelectionUnfocused" style="position: absolute; border-width: 0px; margin: 0px; padding: 0px; outline: none; width: 0px; height: 0px; z-index: 0;"></div></div></div></div></div>
+<div>
+<hr><h3>Log: Program 1.sas</h3>
+<style>
+.sasError{color:red}
+.sasMessage{color:#000}
+.sasWarning{color:#008000}
+.sasSource{color:#000}
+.sasNote{color:#00f}
+</style><p>Notes (46)</p>
+<div {'style':display:none;height:0px'}="" charset="UTF-8"></div><div {'style':display:none;height:0px'}="" rel="stylesheet" href="./log.css"></div><style rel="stylesheet">.sasError {color: red;}.sasMessage{color:#000000;}.sasWarning{color:green;}.sasSource{color:#000000;}.sasNote {color:blue;}</style><div {'style':display:none;height:0px'}log:program="" 1.sas<="" div=""><pre class="sasLog" id="pre_sasLog_283616" style="background-color:transparent; -webkit-user-select: text; -webkit-user-modify: read-only;-webkit-touch-callout: default;border-top-width: 0px;border-bottom-width: 0px"><div><div class="sasSource"> </div><div class="sasSource"> 1          OPTIONS NONOTES NOSTIMER NOSOURCE NOSYNTAXCHECK;</div><div class="sasSource"> 68         </div><div class="sasSource"> 69         /*problem 1 part a*/</div><div class="sasSource"> 70         filename reffile '/home/u63613043/titanic.csv';</div><div class="sasSource"> 71         </div><div class="sasSource"> 72         proc import datafile=reffile dbms=csv out=work.import replace;</div><div class="sasSource"> 73         getnames=yes;</div><div class="sasSource"> 74         run;</div><div class="sasNote"> </div><div class="sasSource"> NOTE: Unable to open parameter catalog: SASUSER.PARMS.PARMS.SLIST in update mode. Temporary parameter values will be saved to </div><div class="sasSource"> WORK.PARMS.PARMS.SLIST.</div><div class="sasSource"> 75          /**********************************************************************</div><div class="sasSource"> 76          *   PRODUCT:   SAS</div><div class="sasSource"> 77          *   VERSION:   9.4</div><div class="sasSource"> 78          *   CREATOR:   External File Interface</div><div class="sasSource"> 79          *   DATE:      20MAR25</div><div class="sasSource"> 80          *   DESC:      Generated SAS Datastep Code</div><div class="sasSource"> 81          *   TEMPLATE SOURCE:  (None Specified.)</div><div class="sasSource"> 82          ***********************************************************************/</div><div class="sasSource"> 83             data WORK.IMPORT    ;</div><div class="sasSource"> 84             %let _EFIERR_ = 0; /* set the ERROR detection macro variable */</div><div class="sasSource"> 85             infile REFFILE delimiter = ',' MISSOVER DSD  firstobs=2 ;</div><div class="sasSource"> 86                informat PassengerId best32. ;</div><div class="sasSource"> 87                informat Survived best32. ;</div><div class="sasSource"> 88                informat Pclass best32. ;</div><div class="sasSource"> 89                informat Name $57. ;</div><div class="sasSource"> 90                informat Sex $6. ;</div><div class="sasSource"> 91                informat Age best32. ;</div><div class="sasSource"> 92                informat SibSp best32. ;</div><div class="sasSource"> 93                informat Parch best32. ;</div><div class="sasSource"> 94                informat Ticket $16. ;</div><div class="sasSource"> 95                informat Fare best32. ;</div><div class="sasSource"> 96                informat Cabin $4. ;</div><div class="sasSource"> 97                informat Embarked $1. ;</div><div class="sasSource"> 98                informat WikiId best32. ;</div><div class="sasSource"> 99                informat Name_wiki $55. ;</div><div class="sasSource"> 100               informat Age_wiki best32. ;</div><div class="sasSource"> 101               informat Hometown $36. ;</div><div class="sasSource"> 102               informat Boarded $11. ;</div><div class="sasSource"> 103               informat Destination $41. ;</div><div class="sasSource"> 104               informat Lifeboat $3. ;</div><div class="sasSource"> 105               informat Body $5. ;</div><div class="sasSource"> 106               informat Class best32. ;</div><div class="sasSource"> 107               format PassengerId best12. ;</div><div class="sasSource"> 108               format Survived best12. ;</div><div class="sasSource"> 109               format Pclass best12. ;</div><div class="sasSource"> 110               format Name $57. ;</div><div class="sasSource"> 111               format Sex $6. ;</div><div class="sasSource"> 112               format Age best12. ;</div><div class="sasSource"> 113               format SibSp best12. ;</div><div class="sasSource"> 114               format Parch best12. ;</div><div class="sasSource"> 115               format Ticket $16. ;</div><div class="sasSource"> 116               format Fare best12. ;</div><div class="sasSource"> 117               format Cabin $4. ;</div><div class="sasSource"> 118               format Embarked $1. ;</div><div class="sasSource"> 119               format WikiId best12. ;</div><div class="sasSource"> 120               format Name_wiki $55. ;</div><div class="sasSource"> 121               format Age_wiki best12. ;</div><div class="sasSource"> 122               format Hometown $36. ;</div><div class="sasSource"> 123               format Boarded $11. ;</div><div class="sasSource"> 124               format Destination $41. ;</div><div class="sasSource"> 125               format Lifeboat $3. ;</div><div class="sasSource"> 126               format Body $5. ;</div><div class="sasSource"> 127               format Class best12. ;</div><div class="sasSource"> 128            input</div><div class="sasSource"> 129                        PassengerId</div><div class="sasSource"> 130                        Survived</div><div class="sasSource"> 131                        Pclass</div><div class="sasSource"> 132                        Name  $</div><div class="sasSource"> 133                        Sex  $</div><div class="sasSource"> 134                        Age</div><div class="sasSource"> 135                        SibSp</div><div class="sasSource"> 136                        Parch</div><div class="sasSource"> 137                        Ticket  $</div><div class="sasSource"> 138                        Fare</div><div class="sasSource"> 139                        Cabin  $</div><div class="sasSource"> 140                        Embarked  $</div><div class="sasSource"> 141                        WikiId</div><div class="sasSource"> 142                        Name_wiki  $</div><div class="sasSource"> 143                        Age_wiki</div><div class="sasSource"> 144                        Hometown  $</div><div class="sasSource"> 145                        Boarded  $</div><div class="sasSource"> 146                        Destination  $</div><div class="sasSource"> 147                        Lifeboat  $</div><div class="sasSource"> 148                        Body  $</div><div class="sasSource"> 149                        Class</div><div class="sasSource"> 150            ;</div><div class="sasSource"> 151            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */</div><div class="sasSource"> 152            run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote1_1742497680896"> NOTE: The infile REFFILE is:</div><div class="sasNote">       Filename=/home/u63613043/titanic.csv,</div><div class="sasNote">       Owner Name=u63613043,Group Name=oda,</div><div class="sasNote">       Access Permission=-rw-r--r--,</div><div class="sasNote">       Last Modified=18Mar2025:19:34:35,</div><div class="sasNote">       File Size (bytes)=227422</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote2_1742497680896"> NOTE: 1309 records were read from the infile REFFILE.</div><div class="sasNote">       The minimum record length was 63.</div><div class="sasNote">       The maximum record length was 267.</div><div class="sasNote" id="sasLogNote3_1742497680896"> NOTE: The data set WORK.IMPORT has 1309 observations and 21 variables.</div><div class="sasNote" id="sasLogNote4_1742497680896"> NOTE: DATA statement used (Total process time):</div><div class="sasNote">       real time           0.00 seconds</div><div class="sasNote">       user cpu time       0.00 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              9734.06k</div><div class="sasNote">       OS Memory           33312.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        59  Switch Count  2</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     139</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        15</div><div class="sasNote">       Involuntary Context Switches      0</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           1040</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 1309 rows created in WORK.IMPORT from REFFILE.</div><div class="sasSource">   </div><div class="sasSource">   </div><div class="sasSource">   </div><div class="sasNote" id="sasLogNote5_1742497680896"> NOTE: WORK.IMPORT data set was successfully created.</div><div class="sasNote" id="sasLogNote6_1742497680896"> NOTE: The data set WORK.IMPORT has 1309 observations and 21 variables.</div><div class="sasNote" id="sasLogNote7_1742497680896"> NOTE: PROCEDURE IMPORT used (Total process time):</div><div class="sasNote">       real time           0.08 seconds</div><div class="sasNote">       user cpu time       0.04 seconds</div><div class="sasNote">       system cpu time     0.01 seconds</div><div class="sasNote">       memory              9734.06k</div><div class="sasNote">       OS Memory           33828.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        59  Switch Count  10</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     1324</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        89</div><div class="sasNote">       Involuntary Context Switches      3</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           1096</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 153        </div><div class="sasSource"> 154        proc contents data=work.import;</div><div class="sasSource"> 155        run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote8_1742497680896"> NOTE: PROCEDURE CONTENTS used (Total process time):</div><div class="sasNote">       real time           0.03 seconds</div><div class="sasNote">       user cpu time       0.04 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              2149.68k</div><div class="sasNote">       OS Memory           28592.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        60  Switch Count  0</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     156</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        3</div><div class="sasNote">       Involuntary Context Switches      2</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           32</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 156        </div><div class="sasSource"> 157        libname mylib "/home/u63613043/mylib";</div><div class="sasNote" id="sasLogNote9_1742497680896"> NOTE: Libref MYLIB was successfully assigned as follows: </div><div class="sasNote">       Engine:        V9 </div><div class="sasNote">       Physical Name: /home/u63613043/mylib</div><div class="sasSource"> 158        </div><div class="sasSource"> 159        data mylib.titanic;</div><div class="sasSource"> 160        set work.import;</div><div class="sasSource"> 161        run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote10_1742497680896"> NOTE: There were 1309 observations read from the data set WORK.IMPORT.</div><div class="sasNote" id="sasLogNote11_1742497680896"> NOTE: The data set MYLIB.TITANIC has 1309 observations and 21 variables.</div><div class="sasNote" id="sasLogNote12_1742497680896"> NOTE: DATA statement used (Total process time):</div><div class="sasNote">       real time           0.01 seconds</div><div class="sasNote">       user cpu time       0.00 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              1760.34k</div><div class="sasNote">       OS Memory           28592.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        61  Switch Count  1</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     153</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        58</div><div class="sasNote">       Involuntary Context Switches      0</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           1032</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 162        </div><div class="sasSource"> 163        /* part b */</div><div class="sasSource"> 164        proc sql;</div><div class="sasSource"> 165        select Total_Observations, Total_Variables from</div><div class="sasSource"> 166        (select count(*) as Total_Observations from mylib.titanic) as</div><div class="sasSource"> 167        Total_Observations, (select count(distinct name) as Total_Variables from</div><div class="sasSource"> 168        dictionary.columns where libname="MYLIB" and memname="TITANIC") as</div><div class="sasSource"> 169        Total_Variables;</div><div class="sasNote" id="sasLogNote13_1742497680896"> NOTE: The execution of this query involves performing one or more Cartesian product joins that can not be optimized.</div><div class="sasSource"> 170        quit;</div><div class="sasNote" id="sasLogNote14_1742497680896"> NOTE: PROCEDURE SQL used (Total process time):</div><div class="sasNote">       real time           0.01 seconds</div><div class="sasNote">       user cpu time       0.01 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              6038.59k</div><div class="sasNote">       OS Memory           33456.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        62  Switch Count  0</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     135</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        11</div><div class="sasNote">       Involuntary Context Switches      0</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           8</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 171        </div><div class="sasSource"> 172        /* part c */</div><div class="sasSource"> 173        proc sql;</div><div class="sasSource"> 174        select name as Variable_Name,</div><div class="sasSource"> 175        type as Data_Type,</div><div class="sasSource"> 176        length as Variable_Length,</div><div class="sasSource"> 177        format as Variable_Format,</div><div class="sasSource"> 178        label as Variable_Label</div><div class="sasSource"> 179        from dictionary.columns</div><div class="sasSource"> 180        where libname = 'MYLIB' and memname = 'TITANIC';</div><div class="sasSource"> 181        quit;</div><div class="sasNote" id="sasLogNote15_1742497680896"> NOTE: PROCEDURE SQL used (Total process time):</div><div class="sasNote">       real time           0.02 seconds</div><div class="sasNote">       user cpu time       0.02 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              5339.84k</div><div class="sasNote">       OS Memory           32940.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        63  Switch Count  0</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     117</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        7</div><div class="sasNote">       Involuntary Context Switches      2</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           0</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 182        </div><div class="sasSource"> 183        /* part d */</div><div class="sasSource"> 184        data _null_;</div><div class="sasSource"> 185            set sashelp.vcolumn end = last;</div><div class="sasSource"> 186            where libname = 'MYLIB' and memname = 'TITANIC';</div><div class="sasSource"> 187            if type='num' then numeric_count+1;</div><div class="sasSource"> 188            else if type = 'char' then character_count+1;</div><div class="sasSource"> 189        </div><div class="sasSource"> 190            if last then do;</div><div class="sasSource"> 191            file print;</div><div class="sasSource"> 192                put "Numeric Variables = " numeric_count;</div><div class="sasSource"> 193                put "Character Variables = " character_count;</div><div class="sasSource"> 194            end;</div><div class="sasSource"> 195        run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote16_1742497680896"> NOTE: 2 lines were written to file PRINT.</div><div class="sasNote" id="sasLogNote17_1742497680896"> NOTE: There were 21 observations read from the data set SASHELP.VCOLUMN.</div><div class="sasNote">       WHERE (libname='MYLIB') and (memname='TITANIC');</div><div class="sasNote" id="sasLogNote18_1742497680896"> NOTE: DATA statement used (Total process time):</div><div class="sasNote">       real time           0.00 seconds</div><div class="sasNote">       user cpu time       0.01 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              5545.25k</div><div class="sasNote">       OS Memory           32940.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        64  Switch Count  0</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     130</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        6</div><div class="sasNote">       Involuntary Context Switches      1</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           0</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 196        </div><div class="sasSource"> 197        /* Problem 2 */</div><div class="sasSource"> 198        libname myfmt "/home/u63613043/myfmt";</div><div class="sasNote" id="sasLogNote19_1742497680896"> NOTE: Libref MYFMT was successfully assigned as follows: </div><div class="sasNote">       Engine:        V9 </div><div class="sasNote">       Physical Name: /home/u63613043/myfmt</div><div class="sasSource"> 199        proc format library=myfmt;</div><div class="sasSource"> 200        </div><div class="sasSource"> 200      !  value pclassf</div><div class="sasSource"> 201        1 = 'Upper Class'</div><div class="sasSource"> 202                2 = 'Middle Class'</div><div class="sasSource"> 203                3 = 'Lower Class'</div><div class="sasSource"> 204                other = 'Unknown'</div><div class="sasSource"> 205            ;</div><div class="sasNote" id="sasLogNote20_1742497680896"> NOTE: Format PCLASSF is already on the library MYFMT.FORMATS.</div><div class="sasNote" id="sasLogNote21_1742497680896"> NOTE: Format PCLASSF has been written to MYFMT.FORMATS.</div><div class="sasSource"> 206            value $embarkf</div><div class="sasSource"> 207                'C' = 'Cherbourg'</div><div class="sasSource"> 208                'Q' = 'Queenstown'</div><div class="sasSource"> 209                'S' = 'Southampton'</div><div class="sasSource"> 210                other = 'Unknown'</div><div class="sasSource"> 211            ;</div><div class="sasNote" id="sasLogNote22_1742497680896"> NOTE: Format $EMBARKF is already on the library MYFMT.FORMATS.</div><div class="sasNote" id="sasLogNote23_1742497680896"> NOTE: Format $EMBARKF has been written to MYFMT.FORMATS.</div><div class="sasSource"> 212        run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote24_1742497680896"> NOTE: PROCEDURE FORMAT used (Total process time):</div><div class="sasNote">       real time           0.00 seconds</div><div class="sasNote">       user cpu time       0.00 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              246.81k</div><div class="sasNote">       OS Memory           27816.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        65  Switch Count  0</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     14</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        10</div><div class="sasNote">       Involuntary Context Switches      0</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           56</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 213        options fmtsearch=(myfmt);</div><div class="sasSource"> 214        </div><div class="sasSource"> 215        /* Problem 3 */</div><div class="sasSource"> 216        options fmtsearch=(myfmt);</div><div class="sasSource"> 217        </div><div class="sasSource"> 218        proc sort data = mylib.titanic out = work.titanic_sorted;</div><div class="sasSource"> 219        by Pclass;</div><div class="sasSource"> 220        run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote25_1742497680896"> NOTE: There were 1309 observations read from the data set MYLIB.TITANIC.</div><div class="sasNote" id="sasLogNote26_1742497680896"> NOTE: The data set WORK.TITANIC_SORTED has 1309 observations and 21 variables.</div><div class="sasNote" id="sasLogNote27_1742497680896"> NOTE: PROCEDURE SORT used (Total process time):</div><div class="sasNote">       real time           0.00 seconds</div><div class="sasNote">       user cpu time       0.00 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              2703.31k</div><div class="sasNote">       OS Memory           29888.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        66  Switch Count  2</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     261</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        20</div><div class="sasNote">       Involuntary Context Switches      0</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           1040</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 221        </div><div class="sasSource"> 222        data work.death_count;</div><div class="sasSource"> 223        set work.titanic_sorted;</div><div class="sasSource"> 224        by Pclass;</div><div class="sasSource"> 225        retain Deaths 0;</div><div class="sasSource"> 226        </div><div class="sasSource"> 227        if first.Pclass then Deaths = 0;</div><div class="sasSource"> 228        if Survived = 0 then Deaths +1;</div><div class="sasSource"> 229        if last.Pclass then output;</div><div class="sasSource"> 230        </div><div class="sasSource"> 231        keep Pclass Deaths;</div><div class="sasSource"> 232        run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote28_1742497680896"> NOTE: There were 1309 observations read from the data set WORK.TITANIC_SORTED.</div><div class="sasNote" id="sasLogNote29_1742497680896"> NOTE: The data set WORK.DEATH_COUNT has 3 observations and 2 variables.</div><div class="sasNote" id="sasLogNote30_1742497680896"> NOTE: DATA statement used (Total process time):</div><div class="sasNote">       real time           0.00 seconds</div><div class="sasNote">       user cpu time       0.01 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              1446.31k</div><div class="sasNote">       OS Memory           28592.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        67  Switch Count  2</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     184</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        12</div><div class="sasNote">       Involuntary Context Switches      0</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           264</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 233        </div><div class="sasSource"> 234        proc print data = work.death_count noobs label;</div><div class="sasSource"> 235        var Pclass Deaths;</div><div class="sasSource"> 236        format Pclass pclassf.;</div><div class="sasSource"> 237        </div><div class="sasSource"> 238        label Pclass = "Passenger Class"</div><div class="sasSource"> 239        Deaths = "Number of Deaths";</div><div class="sasSource"> 240        </div><div class="sasSource"> 241        title "Number of Deaths by Passenger Class";</div><div class="sasSource"> 242        run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote31_1742497680896"> NOTE: There were 3 observations read from the data set WORK.DEATH_COUNT.</div><div class="sasNote" id="sasLogNote32_1742497680896"> NOTE: PROCEDURE PRINT used (Total process time):</div><div class="sasNote">       real time           0.00 seconds</div><div class="sasNote">       user cpu time       0.01 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              716.68k</div><div class="sasNote">       OS Memory           28076.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        68  Switch Count  1</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     89</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        15</div><div class="sasNote">       Involuntary Context Switches      0</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           8</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 243        </div><div class="sasSource"> 244        /* Problem 4 */</div><div class="sasSource"> 245        options fmtsearch = (myfmt);</div><div class="sasSource"> 246        </div><div class="sasSource"> 247        proc sql;</div><div class="sasSource"> 248        select pclass format = pclassf. as Passenger_Class,</div><div class="sasSource"> 249        count(*) as Number_of_Passengers,</div><div class="sasSource"> 250        sum (case when Survived = 0 then 1 else 0 end) as Number_of_Deaths,</div><div class="sasSource"> 251        (calculated Number_of_Deaths / calculated Number_of_Passengers) * 1000</div><div class="sasSource"> 252        as Deaths_per_1000</div><div class="sasSource"> 253        from mylib.titanic</div><div class="sasSource"> 254        group by pclass</div><div class="sasSource"> 255        ;</div><div class="sasSource"> 256        quit;</div><div class="sasNote" id="sasLogNote33_1742497680896"> NOTE: PROCEDURE SQL used (Total process time):</div><div class="sasNote">       real time           0.01 seconds</div><div class="sasNote">       user cpu time       0.01 seconds</div><div class="sasNote">       system cpu time     0.01 seconds</div><div class="sasNote">       memory              6037.96k</div><div class="sasNote">       OS Memory           33456.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        69  Switch Count  0</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     207</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        17</div><div class="sasNote">       Involuntary Context Switches      1</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           16</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 257        </div><div class="sasSource"> 258        /* Part 2 Problem 5 */</div><div class="sasSource"> 259        proc means data=sashelp.class noprint;</div><div class="sasSource"> 260        var weight;</div><div class="sasSource"> 261        output out = stats mean = mean_weight;</div><div class="sasSource"> 262        run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote34_1742497680896"> NOTE: There were 19 observations read from the data set SASHELP.CLASS.</div><div class="sasNote" id="sasLogNote35_1742497680896"> NOTE: The data set WORK.STATS has 1 observations and 3 variables.</div><div class="sasNote" id="sasLogNote36_1742497680896"> NOTE: PROCEDURE MEANS used (Total process time):</div><div class="sasNote">       real time           0.00 seconds</div><div class="sasNote">       user cpu time       0.00 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              6978.37k</div><div class="sasNote">       OS Memory           34768.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        70  Switch Count  3</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     1636</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        36</div><div class="sasNote">       Involuntary Context Switches      0</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           264</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 263        </div><div class="sasSource"> 264        data work.class_new;</div><div class="sasSource"> 265        if _n_ = 1 then set stats;</div><div class="sasSource"> 266        set sashelp.class;</div><div class="sasSource"> 267        Weight_minus_MeanWeight = weight - mean_weight;</div><div class="sasSource"> 268        drop _type_ _freq_;</div><div class="sasSource"> 269        run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote37_1742497680896"> NOTE: There were 1 observations read from the data set WORK.STATS.</div><div class="sasNote" id="sasLogNote38_1742497680896"> NOTE: There were 19 observations read from the data set SASHELP.CLASS.</div><div class="sasNote" id="sasLogNote39_1742497680896"> NOTE: The data set WORK.CLASS_NEW has 19 observations and 7 variables.</div><div class="sasNote" id="sasLogNote40_1742497680896"> NOTE: DATA statement used (Total process time):</div><div class="sasNote">       real time           0.00 seconds</div><div class="sasNote">       user cpu time       0.01 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              1186.65k</div><div class="sasNote">       OS Memory           28848.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        71  Switch Count  2</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     119</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        14</div><div class="sasNote">       Involuntary Context Switches      2</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           264</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 270        </div><div class="sasSource"> 271        proc print data = work.class_new noobs;</div><div class="sasSource"> 272        title "SASHELP.CLASS with Weight_minus_MeanWeight";</div><div class="sasSource"> 273        run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote41_1742497680896"> NOTE: There were 19 observations read from the data set WORK.CLASS_NEW.</div><div class="sasNote" id="sasLogNote42_1742497680896"> NOTE: PROCEDURE PRINT used (Total process time):</div><div class="sasNote">       real time           0.02 seconds</div><div class="sasNote">       user cpu time       0.02 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              656.62k</div><div class="sasNote">       OS Memory           28588.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        72  Switch Count  1</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     64</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        8</div><div class="sasNote">       Involuntary Context Switches      1</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           0</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 274        </div><div class="sasSource"> 275        /* Problem 6 */</div><div class="sasSource"> 276        data membership;</div><div class="sasSource"> 277        infile datalines dsd truncover;</div><div class="sasSource"> 278        length Member_ID $9 Gender $1;</div><div class="sasSource"> 279        input Member_ID : $9.</div><div class="sasSource"> 280        BeginEnroll : ?? date9.</div><div class="sasSource"> 281        EndEnroll : ?? date9.</div><div class="sasSource"> 282        DOB : ?? date9.</div><div class="sasSource"> 283        Gender : $1.;</div><div class="sasSource"> 284        format BeginEnroll EndEnroll DOB date9.;</div><div class="sasSource"> 285        datalines;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote43_1742497680896"> NOTE: The data set WORK.MEMBERSHIP has 5 observations and 5 variables.</div></div><div><div class="sasNote" id="sasLogNote44_1742497680896"> NOTE: DATA statement used (Total process time):</div><div class="sasNote">       real time           0.00 seconds</div><div class="sasNote">       user cpu time       0.00 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              670.71k</div><div class="sasNote">       OS Memory           28588.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        73  Switch Count  2</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     85</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        14</div><div class="sasNote">       Involuntary Context Switches      0</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           264</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 291        ;</div><div class="sasSource"> 292        run;</div><div class="sasSource"> 293        </div><div class="sasSource"> 294        proc print data = membership noobs;</div><div class="sasSource"> 295        title "Membership Data Listing";</div><div class="sasSource"> 296        run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote45_1742497680896"> NOTE: There were 5 observations read from the data set WORK.MEMBERSHIP.</div><div class="sasNote" id="sasLogNote46_1742497680896"> NOTE: PROCEDURE PRINT used (Total process time):</div><div class="sasNote">       real time           0.00 seconds</div><div class="sasNote">       user cpu time       0.01 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              639.15k</div><div class="sasNote">       OS Memory           28588.00k</div><div class="sasNote">       Timestamp           03/20/2025 07:08:01 PM</div><div class="sasNote">       Step Count                        74  Switch Count  1</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     62</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        8</div><div class="sasNote">       Involuntary Context Switches      0</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           0</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 297        </div><div class="sasSource"> 298        </div><div class="sasSource"> 299        </div><div class="sasSource"> 300        </div><div class="sasSource"> 301        </div><div class="sasSource"> 302        </div><div class="sasSource"> 303        </div><div class="sasSource"> 304        </div><div class="sasSource"> 305        </div><div class="sasSource"> 306        </div><div class="sasSource"> 307        </div><div class="sasSource"> 308        </div><div class="sasSource"> 309        </div><div class="sasSource"> 310        </div><div class="sasSource"> 311        </div><div class="sasSource"> 312        </div><div class="sasSource"> 313        </div><div class="sasSource"> 314        </div><div class="sasSource"> 315        </div><div class="sasSource"> 316        </div><div class="sasSource"> 317        </div><div class="sasSource"> 318        OPTIONS NONOTES NOSTIMER NOSOURCE NOSYNTAXCHECK;</div><div class="sasSource"> 328        </div></div></pre></div></div>
+<p>
+</div>
+<div>
+<hr><h3>Results: Program 1.sas</h3>
+<div id="div_9c894294-ce16-4bb1-95f7-325e7ef22f69" class="ods_9c894294-ce16-4bb1-95f7-325e7ef22f69">
+
+
+<meta charset="utf-8">
+<meta content="SAS 9.4" name="generator">
+<title>Results: Program 1.sas</title>
+<style>
+/*<![CDATA[*/
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.c section > table, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.c section > pre, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.c div > table,
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.c div > pre, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.c article > table, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.c article > pre,
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.j section > table, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.j section > pre, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.j div > table,
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.j div > pre, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.j article > table, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.j article > pre,
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.c p.note, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.c p.warning, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.c p.error, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.c p.fatal,
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.j p.note, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.j p.warning, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.j p.error, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.j p.fatal,
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.c > table.layoutcontainer, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body.j > table.layoutcontainer { margin-left: auto; margin-right: auto }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.l table, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.l pre, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.l p.note,
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.l p.warning, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.l p.error, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.l p.fatal { margin-left: 0 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.c table, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.c pre, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.c p.note,
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.c p.warning, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.c p.error, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.c p.fatal { margin-left: auto; margin-right: auto }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.r table, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.r pre, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.r p.note,
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.r table, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.r pre, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.r p.note,
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.r p.warning, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.r p.error, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion.r p.fatal { margin-right: 0 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 article, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 aside, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 details, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 figcaption, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 figure, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 footer, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 header, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 hgroup, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 nav, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 section { display: block }
+html.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 { font-size: 100% }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body { margin: 1em; font-size: 13px; line-height: 1.231 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 sup { position: relative; vertical-align: baseline; bottom: 0.25em; font-size: 0.8em }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 sub { position: relative; vertical-align: baseline; top: 0.25em; font-size: 0.8em }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 ul, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 ol { margin: 1em 0; padding: 0 0 0 40px }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 dd { margin: 0 0 0 40px }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 nav ul, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 img { border: 0; vertical-align: middle }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 svg:not(:root) { overflow: hidden }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 figure { margin: 0 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 table { border-collapse: collapse; border-spacing: 0 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutcontainer { border-collapse: separate; border-spacing: 0 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 p { margin-top: 0; text-align: left }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 h1.heading1 { text-align: left }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 h2.heading2 { text-align: left }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 h3.heading3 { text-align: left }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 h4.heading4 { text-align: left }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 h5.heading5 { text-align: left }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 h6.heading6 { text-align: left }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 span { text-align: left }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 table { margin-bottom: 1em }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 td, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 th { text-align: left; padding: 3px 6px; vertical-align: top }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 td[class$="fixed"], .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 th[class$="fixed"] { white-space: pre }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 section, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 article { padding-top: 1px; padding-bottom: 8px }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 hr.pagebreak { height: 0px; border: 0; border-bottom: 1px solid #c0c0c0; margin: 1em 0 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .stacked-value { text-align: left; display: block }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .stacked-cell > .stacked-value, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 td.data > td.data, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 th.data > td.data, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 th.data > th.data, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 td.data > th.data, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 th.header > th.header { border: 0 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .stacked-cell > div.data { border-width: 0 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systitleandfootercontainer { white-space: nowrap; margin-bottom: 1em }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systitleandfootercontainer > p { margin: 0 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systitleandfootercontainer > p > span { display: inline-block; width: 100%; white-space: normal }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .batch { display: table }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .toc { display: none }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .proc_note_group, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .proc_title_group { margin-bottom: 1em }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 p.proctitle { margin: 0 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 p.note, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 p.warning, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 p.error, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 p.fatal { display: table }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .notebanner, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .warnbanner, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .errorbanner, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .fatalbanner,
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .notecontent, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .warncontent, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .errorcontent, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .fatalcontent { display: table-cell; padding: 0.5em }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .notebanner, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .warnbanner, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .errorbanner, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .fatalbanner { padding-right: 0 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body > div > ol li { text-align: left }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .beforecaption > h4 { margin-top: 0; margin-bottom: 0 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .c { text-align: center }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .r { text-align: right }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .l { text-align: left }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .j { text-align: justify }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .d { text-align: right }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .b { vertical-align: bottom }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .m { vertical-align: middle }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .t { vertical-align: top }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .accessiblecaption {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 a:active { color: #800080 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .aftercaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 4pt;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .batch > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .batch > tbody, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .batch > thead, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .batch > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .batch { border: hidden; }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .batch {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'SAS Monospace', 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    padding: 7px;
+    }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .beforecaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .body {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .bodydate {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    vertical-align: top;
+    width: 100%;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .bycontentfolder {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .byline {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .bylinecontainer > col, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .bylinecontainer > colgroup > col, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .bylinecontainer > colgroup, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .bylinecontainer > tr, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .bylinecontainer > * > tr, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .bylinecontainer > thead, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .bylinecontainer > tbody, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .bylinecontainer > tfoot { border: none; }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .bylinecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .caption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .cell, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .container {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .contentfolder, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .contentitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .contentproclabel, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .contentprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .contents {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .contentsdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .contenttitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .continued {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    width: 100%;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .data, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .dataemphasis {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .dataemphasisfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .dataempty {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .datafixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .datastrong {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .datastrongfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .date {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .document {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .errorbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .errorcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .errorcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .extendedpage {
+    background-color: #fafbfe;
+    border-style: solid;
+    border-width: 1pt;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .fatalbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .fatalcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .fatalcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .folderaction {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .footer {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .footeremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .footeremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .footerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .footerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .footerstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .footerstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .frame {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .graph > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .graph > tbody, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .graph > thead, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .graph > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .graph { border: hidden; }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .graph {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .header {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .headeremphasis {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .headeremphasisfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .headerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .headerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .headersandfooters {
+    background-color: #edf2f9;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .headerstrong {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .headerstrongfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .heading1, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .heading2, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .heading3, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .heading4, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .heading5, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .heading6 { font-family: Arial, Helvetica, sans-serif }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .index {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .indexaction, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .indexitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .indexprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .indextitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutcontainer, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .layoutregion {
+    border-width: 0;
+    border-spacing: 30px;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .linecontent {
+    background-color: #fafbfe;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 a:link { color: #0000ff }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .list {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .list10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .list2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .list3, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .list4, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .list5, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .list6, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .list7, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .list8, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .list9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .listitem {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .listitem10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .listitem2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .listitem3, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .listitem4, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .listitem5, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .listitem6, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .listitem7, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .listitem8, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .listitem9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .note {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .notebanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .notecontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .notecontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .output > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .output > tbody, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .output > thead, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .output > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .output { border: hidden; }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .output {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .pageno {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    vertical-align: top;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .pages {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .pagesdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .pagesitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .pagesproclabel, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .pagesprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .pagestitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .paragraph {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .parskip > col, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .parskip > colgroup > col, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .parskip > colgroup, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .parskip > tr, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .parskip > * > tr, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .parskip > thead, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .parskip > tbody, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .parskip > tfoot { border: none; }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .parskip {
+    border: none;
+    border-spacing: 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .prepage {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .proctitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .proctitlefixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .rowfooter {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .rowfooteremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .rowfooteremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .rowfooterempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .rowfooterfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .rowfooterstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .rowfooterstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .rowheader {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .rowheaderemphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .rowheaderemphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .rowheaderempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .rowheaderfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .rowheaderstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .rowheaderstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemfooter, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemfooter10, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemfooter2, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemfooter3, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemfooter4, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemfooter5, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemfooter6, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemfooter7, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemfooter8, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemfooter9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemtitle, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemtitle10, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemtitle2, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemtitle3, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemtitle4, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemtitle5, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemtitle6, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemtitle7, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemtitle8, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systemtitle9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systitleandfootercontainer > col, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systitleandfootercontainer > colgroup > col, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systitleandfootercontainer > colgroup, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systitleandfootercontainer > tr, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systitleandfootercontainer > * > tr, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systitleandfootercontainer > thead, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systitleandfootercontainer > tbody, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systitleandfootercontainer > tfoot { border: none; }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .systitleandfootercontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .table > col, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .table > colgroup > col {
+    border-left: 1px solid #c1c1c1;
+    border-right: 0 solid #c1c1c1;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .table > tr, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .table > * > tr {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 0 solid #c1c1c1;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .table { border: hidden; }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .table {
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .titleandnotecontainer > col, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .titleandnotecontainer > colgroup > col, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .titleandnotecontainer > colgroup, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .titleandnotecontainer > tr, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .titleandnotecontainer > * > tr, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .titleandnotecontainer > thead, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .titleandnotecontainer > tbody, .ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .titleandnotecontainer > tfoot { border: none; }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .titleandnotecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .titlesandfooters {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .usertext {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 a:visited { color: #800080 }
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .warnbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .warncontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_9c894294-ce16-4bb1-95f7-325e7ef22f69 .warncontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+/*]]>*/
+</style>
+
+
+<div id="div_9c894294-ce16-4bb1-95f7-325e7ef22f69" class="c body">
+<h1 class="body toc">Results: Program 1.sas</h1>
+<section data-name="Contents" data-sec-type="proc">
+<div id="IDX" class="proc_title_group">
+<p class="c proctitle">The CONTENTS Procedure</p>
+</div>
+<h1 class="contentprocname toc">The Contents Procedure</h1>
+<section>
+<h1 class="contentfolder toc">WORK.IMPORT</h1>
+<article aria-label="Attributes">
+<h1 class="contentitem toc">Attributes</h1>
+<table class="table" style="border-spacing: 0" aria-label="Attributes">
+<caption aria-label="Attributes"></caption>
+<colgroup><col><col><col><col></colgroup>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Data Set Name</th>
+<td class="data">WORK.IMPORT</td>
+<th class="rowheader" scope="row">Observations</th>
+<td class="data">1309</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Member Type</th>
+<td class="data">DATA</td>
+<th class="rowheader" scope="row">Variables</th>
+<td class="data">21</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Engine</th>
+<td class="data">V9</td>
+<th class="rowheader" scope="row">Indexes</th>
+<td class="data">0</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Created</th>
+<td class="data">03/20/2025 15:08:01</td>
+<th class="rowheader" scope="row">Observation Length</th>
+<td class="data">320</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Last Modified</th>
+<td class="data">03/20/2025 15:08:01</td>
+<th class="rowheader" scope="row">Deleted Observations</th>
+<td class="data">0</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Protection</th>
+<td class="data">&nbsp;</td>
+<th class="rowheader" scope="row">Compressed</th>
+<td class="data">NO</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Data Set Type</th>
+<td class="data">&nbsp;</td>
+<th class="rowheader" scope="row">Sorted</th>
+<td class="data">NO</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Label</th>
+<td class="data">&nbsp;</td>
+<th class="rowheader" scope="row">&nbsp;</th>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Data Representation</th>
+<td class="data">SOLARIS_X86_64, LINUX_X86_64, ALPHA_TRU64, LINUX_IA64</td>
+<th class="rowheader" scope="row">&nbsp;</th>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Encoding</th>
+<td class="data">utf-8  Unicode (UTF-8)</td>
+<th class="rowheader" scope="row">&nbsp;</th>
+<td class="data">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX1" aria-label="Engine/Host Information">
+<h1 class="contentitem toc">Engine/Host Information</h1>
+<table class="table" style="border-spacing: 0" aria-label="Engine/Host Information">
+<caption aria-label="Engine/Host Information"></caption>
+<colgroup><col><col></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">Engine/Host Dependent Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Data Set Page Size</th>
+<td class="data">131072</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Number of Data Set Pages</th>
+<td class="data">4</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">First Data Page</th>
+<td class="data">1</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Max Obs per Page</th>
+<td class="data">409</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Obs in First Data Page</th>
+<td class="data">395</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Number of Data Set Repairs</th>
+<td class="data">0</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Filename</th>
+<td class="data">/saswork/SAS_work7D160000CB48_odaws02-usw2-2.oda.sas.com/SAS_work28BF0000CB48_odaws02-usw2-2.oda.sas.com/import.sas7bdat</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Release Created</th>
+<td class="data">9.0401M7</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Host Created</th>
+<td class="data">Linux</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Inode Number</th>
+<td class="data">2684363634</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Access Permission</th>
+<td class="data">rw-r--r--</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Owner Name</th>
+<td class="data">u63613043</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">File Size</th>
+<td class="data">640KB</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">File Size (bytes)</th>
+<td class="data">655360</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX2" aria-label="Variables">
+<h1 class="contentitem toc">Variables</h1>
+<table class="table" style="border-spacing: 0" aria-label="Variables">
+<caption aria-label="Variables"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="6" scope="colgroup">Alphabetic List of Variables and Attributes</th>
+</tr>
+<tr>
+<th class="r b header" scope="col">#</th>
+<th class="b header" scope="col">Variable</th>
+<th class="b header" scope="col">Type</th>
+<th class="r b header" scope="col">Len</th>
+<th class="b header" scope="col">Format</th>
+<th class="b header" scope="col">Informat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">6</th>
+<td class="data">Age</td>
+<td class="data">Num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">BEST32.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">15</th>
+<td class="data">Age_wiki</td>
+<td class="data">Num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">BEST32.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">17</th>
+<td class="data">Boarded</td>
+<td class="data">Char</td>
+<td class="r data">11</td>
+<td class="data">$11.</td>
+<td class="data">$11.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20</th>
+<td class="data">Body</td>
+<td class="data">Char</td>
+<td class="r data">5</td>
+<td class="data">$5.</td>
+<td class="data">$5.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">11</th>
+<td class="data">Cabin</td>
+<td class="data">Char</td>
+<td class="r data">4</td>
+<td class="data">$4.</td>
+<td class="data">$4.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21</th>
+<td class="data">Class</td>
+<td class="data">Num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">BEST32.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18</th>
+<td class="data">Destination</td>
+<td class="data">Char</td>
+<td class="r data">41</td>
+<td class="data">$41.</td>
+<td class="data">$41.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">12</th>
+<td class="data">Embarked</td>
+<td class="data">Char</td>
+<td class="r data">1</td>
+<td class="data">$1.</td>
+<td class="data">$1.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10</th>
+<td class="data">Fare</td>
+<td class="data">Num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">BEST32.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16</th>
+<td class="data">Hometown</td>
+<td class="data">Char</td>
+<td class="r data">36</td>
+<td class="data">$36.</td>
+<td class="data">$36.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19</th>
+<td class="data">Lifeboat</td>
+<td class="data">Char</td>
+<td class="r data">3</td>
+<td class="data">$3.</td>
+<td class="data">$3.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4</th>
+<td class="data">Name</td>
+<td class="data">Char</td>
+<td class="r data">57</td>
+<td class="data">$57.</td>
+<td class="data">$57.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14</th>
+<td class="data">Name_wiki</td>
+<td class="data">Char</td>
+<td class="r data">55</td>
+<td class="data">$55.</td>
+<td class="data">$55.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8</th>
+<td class="data">Parch</td>
+<td class="data">Num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">BEST32.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">1</th>
+<td class="data">PassengerId</td>
+<td class="data">Num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">BEST32.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3</th>
+<td class="data">Pclass</td>
+<td class="data">Num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">BEST32.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5</th>
+<td class="data">Sex</td>
+<td class="data">Char</td>
+<td class="r data">6</td>
+<td class="data">$6.</td>
+<td class="data">$6.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7</th>
+<td class="data">SibSp</td>
+<td class="data">Num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">BEST32.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2</th>
+<td class="data">Survived</td>
+<td class="data">Num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">BEST32.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9</th>
+<td class="data">Ticket</td>
+<td class="data">Char</td>
+<td class="r data">16</td>
+<td class="data">$16.</td>
+<td class="data">$16.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13</th>
+<td class="data">WikiId</td>
+<td class="data">Num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">BEST32.</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+</section>
+<section data-name="SQL" data-sec-type="proc">
+<hr class="pagebreak">
+<h1 class="contentprocname toc">The SQL Procedure</h1>
+<article id="IDX3" aria-label="Query Results">
+<h1 class="contentitem toc">Query Results</h1>
+<table class="table" style="border-spacing: 0" aria-label="Query Results">
+<caption aria-label="Query Results"></caption>
+<colgroup><col><col></colgroup>
+<thead>
+<tr>
+<th class="r b header" scope="col">Total_Observations</th>
+<th class="r b header" scope="col">Total_Variables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="r data">1309</td>
+<td class="r data">21</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section data-name="SQL" data-sec-type="proc">
+<hr class="pagebreak">
+<h1 class="contentprocname toc">The SQL Procedure</h1>
+<article id="IDX4" aria-label="Query Results">
+<h1 class="contentitem toc">Query Results</h1>
+<table class="table" style="border-spacing: 0" aria-label="Query Results">
+<caption aria-label="Query Results"></caption>
+<colgroup><col><col><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="b header" scope="col">Column Name</th>
+<th class="b header" scope="col">Column Type</th>
+<th class="r b header" scope="col">Column Length</th>
+<th class="b header" scope="col">Column Format</th>
+<th class="b header" scope="col">Column Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="data">PassengerId</td>
+<td class="data">num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Survived</td>
+<td class="data">num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Pclass</td>
+<td class="data">num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Name</td>
+<td class="data">char</td>
+<td class="r data">57</td>
+<td class="data">$57.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Sex</td>
+<td class="data">char</td>
+<td class="r data">6</td>
+<td class="data">$6.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Age</td>
+<td class="data">num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">SibSp</td>
+<td class="data">num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Parch</td>
+<td class="data">num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Ticket</td>
+<td class="data">char</td>
+<td class="r data">16</td>
+<td class="data">$16.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Fare</td>
+<td class="data">num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Cabin</td>
+<td class="data">char</td>
+<td class="r data">4</td>
+<td class="data">$4.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Embarked</td>
+<td class="data">char</td>
+<td class="r data">1</td>
+<td class="data">$1.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">WikiId</td>
+<td class="data">num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Name_wiki</td>
+<td class="data">char</td>
+<td class="r data">55</td>
+<td class="data">$55.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Age_wiki</td>
+<td class="data">num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Hometown</td>
+<td class="data">char</td>
+<td class="r data">36</td>
+<td class="data">$36.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Boarded</td>
+<td class="data">char</td>
+<td class="r data">11</td>
+<td class="data">$11.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Destination</td>
+<td class="data">char</td>
+<td class="r data">41</td>
+<td class="data">$41.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Lifeboat</td>
+<td class="data">char</td>
+<td class="r data">3</td>
+<td class="data">$3.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Body</td>
+<td class="data">char</td>
+<td class="r data">5</td>
+<td class="data">$5.</td>
+<td class="data">&nbsp;</td>
+</tr>
+<tr>
+<td class="data">Class</td>
+<td class="data">num</td>
+<td class="r data">8</td>
+<td class="data">BEST12.</td>
+<td class="data">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section data-name="Datastep" data-sec-type="proc">
+<hr class="pagebreak">
+<h1 class="contentprocname toc">The Datastep Procedure</h1>
+<article id="IDX5" aria-label="FilePrint3">
+<h1 class="contentitem toc">FilePrint3</h1>
+<pre class="batch" style="border-spacing: 1px">Numeric Variables = 10                                                                                                              
+Character Variables = 11                                                                                                            
+</pre>
+</article>
+</section>
+<section data-name="Print" data-sec-type="proc">
+<hr class="pagebreak">
+<div id="IDX6" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="c systemtitle">Number of Deaths by Passenger Class</span> </p>
+</div>
+<h1 class="contentprocname toc">The Print Procedure</h1>
+<article aria-label="Data Set WORK.DEATH_COUNT">
+<h1 class="contentitem toc">Data Set WORK.DEATH_COUNT</h1>
+<table class="table" style="border-spacing: 0" aria-label="Data Set WORK.DEATH_COUNT">
+<caption aria-label="Data Set WORK.DEATH_COUNT"></caption>
+<colgroup><col><col></colgroup>
+<thead>
+<tr>
+<th class="r header" scope="col">Passenger Class</th>
+<th class="r header" scope="col">Number of Deaths</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="r data">Upper Class</td>
+<td class="r data">80</td>
+</tr>
+<tr>
+<td class="r data">Middle Class</td>
+<td class="r data">97</td>
+</tr>
+<tr>
+<td class="r data">Lower Class</td>
+<td class="r data">372</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section data-name="SQL" data-sec-type="proc">
+<hr class="pagebreak">
+<div id="IDX7" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="c systemtitle">Number of Deaths by Passenger Class</span> </p>
+</div>
+<h1 class="contentprocname toc">The SQL Procedure</h1>
+<article aria-label="Query Results">
+<h1 class="contentitem toc">Query Results</h1>
+<table class="table" style="border-spacing: 0" aria-label="Query Results">
+<caption aria-label="Query Results"></caption>
+<colgroup><col><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="r b header" scope="col">Passenger_Class</th>
+<th class="r b header" scope="col">Number_of_Passengers</th>
+<th class="r b header" scope="col">Number_of_Deaths</th>
+<th class="r b header" scope="col">Deaths_per_1000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="r data">Upper Class</td>
+<td class="r data">323</td>
+<td class="r data">80</td>
+<td class="r data">247.678</td>
+</tr>
+<tr>
+<td class="r data">Middle Class</td>
+<td class="r data">277</td>
+<td class="r data">97</td>
+<td class="r data">350.1805</td>
+</tr>
+<tr>
+<td class="r data">Lower Class</td>
+<td class="r data">709</td>
+<td class="r data">372</td>
+<td class="r data">524.6827</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section data-name="Print" data-sec-type="proc">
+<hr class="pagebreak">
+<div id="IDX8" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="c systemtitle">SASHELP.CLASS with Weight_minus_MeanWeight</span> </p>
+</div>
+<h1 class="contentprocname toc">The Print Procedure</h1>
+<article aria-label="Data Set WORK.CLASS_NEW">
+<h1 class="contentitem toc">Data Set WORK.CLASS_NEW</h1>
+<table class="table" style="border-spacing: 0" aria-label="Data Set WORK.CLASS_NEW">
+<caption aria-label="Data Set WORK.CLASS_NEW"></caption>
+<colgroup><col><col><col><col><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="r header" scope="col">mean_weight</th>
+<th class="header" scope="col">Name</th>
+<th class="header" scope="col">Sex</th>
+<th class="r header" scope="col">Age</th>
+<th class="r header" scope="col">Height</th>
+<th class="r header" scope="col">Weight</th>
+<th class="r header" scope="col">Weight_minus_MeanWeight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Alfred</td>
+<td class="data">M</td>
+<td class="r data">14</td>
+<td class="r data">69.0</td>
+<td class="r data">112.5</td>
+<td class="r data">12.4737</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Alice</td>
+<td class="data">F</td>
+<td class="r data">13</td>
+<td class="r data">56.5</td>
+<td class="r data">84.0</td>
+<td class="r data" style="white-space: nowrap">-16.0263</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Barbara</td>
+<td class="data">F</td>
+<td class="r data">13</td>
+<td class="r data">65.3</td>
+<td class="r data">98.0</td>
+<td class="r data" style="white-space: nowrap">-2.0263</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Carol</td>
+<td class="data">F</td>
+<td class="r data">14</td>
+<td class="r data">62.8</td>
+<td class="r data">102.5</td>
+<td class="r data">2.4737</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Henry</td>
+<td class="data">M</td>
+<td class="r data">14</td>
+<td class="r data">63.5</td>
+<td class="r data">102.5</td>
+<td class="r data">2.4737</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">James</td>
+<td class="data">M</td>
+<td class="r data">12</td>
+<td class="r data">57.3</td>
+<td class="r data">83.0</td>
+<td class="r data" style="white-space: nowrap">-17.0263</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Jane</td>
+<td class="data">F</td>
+<td class="r data">12</td>
+<td class="r data">59.8</td>
+<td class="r data">84.5</td>
+<td class="r data" style="white-space: nowrap">-15.5263</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Janet</td>
+<td class="data">F</td>
+<td class="r data">15</td>
+<td class="r data">62.5</td>
+<td class="r data">112.5</td>
+<td class="r data">12.4737</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Jeffrey</td>
+<td class="data">M</td>
+<td class="r data">13</td>
+<td class="r data">62.5</td>
+<td class="r data">84.0</td>
+<td class="r data" style="white-space: nowrap">-16.0263</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">John</td>
+<td class="data">M</td>
+<td class="r data">12</td>
+<td class="r data">59.0</td>
+<td class="r data">99.5</td>
+<td class="r data" style="white-space: nowrap">-0.5263</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Joyce</td>
+<td class="data">F</td>
+<td class="r data">11</td>
+<td class="r data">51.3</td>
+<td class="r data">50.5</td>
+<td class="r data" style="white-space: nowrap">-49.5263</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Judy</td>
+<td class="data">F</td>
+<td class="r data">14</td>
+<td class="r data">64.3</td>
+<td class="r data">90.0</td>
+<td class="r data" style="white-space: nowrap">-10.0263</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Louise</td>
+<td class="data">F</td>
+<td class="r data">12</td>
+<td class="r data">56.3</td>
+<td class="r data">77.0</td>
+<td class="r data" style="white-space: nowrap">-23.0263</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Mary</td>
+<td class="data">F</td>
+<td class="r data">15</td>
+<td class="r data">66.5</td>
+<td class="r data">112.0</td>
+<td class="r data">11.9737</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Philip</td>
+<td class="data">M</td>
+<td class="r data">16</td>
+<td class="r data">72.0</td>
+<td class="r data">150.0</td>
+<td class="r data">49.9737</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Robert</td>
+<td class="data">M</td>
+<td class="r data">12</td>
+<td class="r data">64.8</td>
+<td class="r data">128.0</td>
+<td class="r data">27.9737</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Ronald</td>
+<td class="data">M</td>
+<td class="r data">15</td>
+<td class="r data">67.0</td>
+<td class="r data">133.0</td>
+<td class="r data">32.9737</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">Thomas</td>
+<td class="data">M</td>
+<td class="r data">11</td>
+<td class="r data">57.5</td>
+<td class="r data">85.0</td>
+<td class="r data" style="white-space: nowrap">-15.0263</td>
+</tr>
+<tr>
+<td class="r data">100.026</td>
+<td class="data">William</td>
+<td class="data">M</td>
+<td class="r data">15</td>
+<td class="r data">66.5</td>
+<td class="r data">112.0</td>
+<td class="r data">11.9737</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section data-name="Print" data-sec-type="proc">
+<hr class="pagebreak">
+<div id="IDX9" class="systitleandfootercontainer" style="border-spacing: 1px">
+<p><span class="c systemtitle">Membership Data Listing</span> </p>
+</div>
+<h1 class="contentprocname toc">The Print Procedure</h1>
+<article aria-label="Data Set WORK.MEMBERSHIP">
+<h1 class="contentitem toc">Data Set WORK.MEMBERSHIP</h1>
+<table class="table" style="border-spacing: 0" aria-label="Data Set WORK.MEMBERSHIP">
+<caption aria-label="Data Set WORK.MEMBERSHIP"></caption>
+<colgroup><col><col><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="header" scope="col">Member_ID</th>
+<th class="header" scope="col">Gender</th>
+<th class="r header" scope="col">BeginEnroll</th>
+<th class="r header" scope="col">EndEnroll</th>
+<th class="r header" scope="col">DOB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="data">M00008501</td>
+<td class="data">M</td>
+<td class="r data">05FEB2013</td>
+<td class="r data">31DEC2013</td>
+<td class="r data">14MAY1930</td>
+</tr>
+<tr>
+<td class="data">M00008502</td>
+<td class="data">F</td>
+<td class="r data">.</td>
+<td class="r data">31DEC2013</td>
+<td class="r data">24MAY1930</td>
+</tr>
+<tr>
+<td class="data">M00008503</td>
+<td class="data">F</td>
+<td class="r data">15JUL2013</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<td class="data">M00008504</td>
+<td class="data">M</td>
+<td class="r data">25AUG2013</td>
+<td class="r data">31DEC2013</td>
+<td class="r data">14MAY1930</td>
+</tr>
+<tr>
+<td class="data">M00008505</td>
+<td class="data">F</td>
+<td class="r data">.</td>
+<td class="r data">31DEC2013</td>
+<td class="r data">14MAY1930</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+</div>
+
+
+</div>
+<p>
+</div>
+</body></html>
