@@ -2,7 +2,7 @@
 ## Flu Shot Learning - Predict H1N1 and Seasonal Flu Vaccines
 
 ## Project Overview
-This project is part of ** [DrivenData Flu Shot Learning - Predict H1N1 and Seasonal Flu Vaccines] **.
+This project is part of **[DrivenData Flu Shot Learning - Predict H1N1 and Seasonal Flu Vaccines]**.
 The goal is to predict the likelihood of individuals receiving H1N1 and Seasonal flu vaccines based on demographic and behavioral data.
 
 ## Tech Stack
