@@ -16,9 +16,9 @@ The goal is to predict the likelihood of individuals receiving H1N1 and Seasonal
 - Overall Model Performance: Achieved a ROC AUC 0.8317, demonstrating a competitive model.
 
 ## Project Structures
-Competition1: Main folder for Flu Shot Learning competition
-data: Stores processed data & final submission (`submission.csv`)
-scripts: Contains Python script for model training & prediction (`flu_shot_model.py`)
+- Competition1: Main folder for Flu Shot Learning competition
+- Data: Stores processed data & final submission (`submission.csv`)
+- Scripts: Contains Python script for model training & prediction (`flu_shot_model.py`)
 README.md: Project documentation
 
 ## Model Training & Prediction Pipeline
