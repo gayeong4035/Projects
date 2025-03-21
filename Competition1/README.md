@@ -42,7 +42,7 @@ The goal is to predict the likelihood of individuals receiving H1N1 and Seasonal
 ## Key Insights
 - Handling missing data improved performance (median/mode strategy)
 - One-hot encoding & feature alignment were crucial for consistency
-- Demographic & health-related factors stronglyn influenced vaccine uptake
+- Demographic & health-related factors strongly influenced vaccine uptake
 - Random Forest provided solid results with minimul tuning (ROC AUC '0.8317')
 
 
