@@ -3,7 +3,7 @@
 This project explores the Titanic dataset using SAS to analyze passenger survival patterns. The focus is on data cleaning, formatting, and generating summary statistics through SQL and DATA step procedures.
 
 ## Tech Stack
-- SAS (Base SAS, SAS Studio - ODA)
+- SAS (Base SAS, SAS Studio - ODA)
 - DATA Processing (`PROC IMPORT`, `PROC CONTENTS`, conditional logic)
 - Statistical Analysis (`PROC SQL`, aggregations, calculated fields)
 - Output & Formatting (`PROC PRINT`, `PROC FORMAT`)
