@@ -12,7 +12,7 @@ This project explores the Titanic dataset using SAS to analyze passenger surviva
 ## Project Structures
 - `SAS_Titanic_Data_Project.sas`: Main script
 - `SAS_Titanic_Data_Project.pdf`: Output and results
-- `titanic.csv`: titanic dataset used for analysis (instructor-provided)
+- `titanic.csv`: Titanic dataset used for analysis (instructor-provided)
 - `README.md`: Project documentation
 
 ## Analysis Pipeline
