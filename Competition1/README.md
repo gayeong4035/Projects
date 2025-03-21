@@ -19,7 +19,7 @@ The goal is to predict the likelihood of individuals receiving H1N1 and Seasonal
 - Competition1: Main folder for Flu Shot Learning competition
 - Data: Stores processed data & final submission (`submission.csv`)
 - Scripts: Contains Python script for model training & prediction (`flu_shot_model.py`)
-README.md: Project documentation
+- README.md: Project documentation
 
 ## Model Training & Prediction Pipeline
 1. Data Processing
